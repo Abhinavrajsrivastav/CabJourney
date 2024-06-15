@@ -19,7 +19,7 @@ public class CabJourney {
         do {
             showMenu();
             choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine(); 
 
             switch (choice) {
                 case 1:
@@ -62,7 +62,7 @@ public class CabJourney {
     }
 
     private static void initializeCities() {
-        // Initialize localities in Delhi
+//------------ locations in Delhi
         addCity("Connaught Place");
         addCity("Karol Bagh");
         addCity("Lajpat Nagar");
@@ -85,10 +85,10 @@ public class CabJourney {
         addCity("Shahdara");
 
         distanceMatrix = new int[MAX_CITIES][MAX_CITIES];
-        // Initialize distance matrix with INFINITY
+//-------------- Initializing distance matrix with INFINITY
         for (int i = 0; i < MAX_CITIES; i++) {
             Arrays.fill(distanceMatrix[i], INFINITY);
-            distanceMatrix[i][i] = 0; // Distance to self is 0
+            distanceMatrix[i][i] = 0;
         }
     }
 
@@ -103,7 +103,7 @@ public class CabJourney {
     }
 
     private static void initializeDistances() {
-        // Add edges between localities with approximate distances in km
+//----------- Add edges between localities with approximate distances in km
         addEdge("Connaught Place", "Karol Bagh", 5);
         addEdge("Connaught Place", "Lajpat Nagar", 10);
         addEdge("Karol Bagh", "Rohini", 15);
@@ -130,7 +130,7 @@ public class CabJourney {
         int index1 = cityIndexMap.get(city1);
         int index2 = cityIndexMap.get(city2);
         distanceMatrix[index1][index2] = distance;
-        distanceMatrix[index2][index1] = distance; // Assuming undirected graph
+        distanceMatrix[index2][index1] = distance;
     }
 
     private static void findShortestPath(String startCity, String endCity) {
